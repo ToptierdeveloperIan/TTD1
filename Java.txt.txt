@@ -1,0 +1,23 @@
+package com.example.openurlintentapp;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity; public class MainActivity extends AppCompatActivity {
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main); }
+// Method to open the URL when the button is clicked public void openWebPage(View view) {
+// URL to be opened
+String url = "https://www.example.com";
+// Create an implicit intent to open the URL
+Intent openUrlIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+// Check if there is an app to handle this intent
+if (openUrlIntent.resolveActivity(getPackageManager()) != null) {
+startActivity(openUrlIntent); } else {
+// If no app can handle the intent, display a message
+Toast.makeText(this, "No application can handle this request", Toast.LENGTH_SHORT).show();
+} }
+}
