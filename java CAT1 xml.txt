@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Num 1:" />
+            <EditText
+                android:id="@+id/editTextNum1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Num 2:" />
+            <EditText
+                android:id="@+id/editTextNum2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Num 3:" />
+            <EditText
+                android:id="@+id/editTextNum3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number" />
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:id="@+id/buttonMax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find Max" />
+
+            <Button
+                android:id="@+id/buttonMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find Min" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/textViewResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Answer:" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

@@ -1,0 +1,82 @@
+package com.example.counterapp;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    private EditText editTextNum1, editTextNum2, editTextNum3;
+    private TextView textViewResult;
+    private Button buttonMax, buttonMin;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        editTextNum1 = findViewById(R.id.editTextNum1);
+        editTextNum2 = findViewById(R.id.editTextNum2);
+        editTextNum3 = findViewById(R.id.editTextNum3);
+        textViewResult = findViewById(R.id.textViewResult);
+        buttonMax = findViewById(R.id.buttonMax);
+        buttonMin = findViewById(R.id.buttonMin);
+
+        buttonMax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculateMax();
+            }
+        });
+
+        buttonMin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculateMin();
+            }
+        });
+    }
+
+    private void calculateMax() {
+        if (validateInputs()) {
+            try {
+                int num1 = Integer.parseInt(editTextNum1.getText().toString());
+                int num2 = Integer.parseInt(editTextNum2.getText().toString());
+                int num3 = Integer.parseInt(editTextNum3.getText().toString());
+
+                int max = Math.max(num1, Math.max(num2, num3));
+                textViewResult.setText("Max: " + max);
+            } catch (NumberFormatException e) {
+                textViewResult.setText("Invalid input. Please enter integers.");
+            }
+        }
+    }
+
+    private void calculateMin() {
+        if (validateInputs()) {
+            try {
+                int num1 = Integer.parseInt(editTextNum1.getText().toString());
+                int num2 = Integer.parseInt(editTextNum2.getText().toString());
+                int num3 = Integer.parseInt(editTextNum3.getText().toString());
+
+                int min = Math.min(num1, Math.min(num2, num3));
+                textViewResult.setText("Min: " + min);
+            } catch (NumberFormatException e) {
+                textViewResult.setText("Invalid input. Please enter integers.");
+            }
+        }
+    }
+
+    private boolean validateInputs() {
+        if (editTextNum1.getText().toString().isEmpty() ||
+                editTextNum2.getText().toString().isEmpty() ||
+                editTextNum3.getText().toString().isEmpty()) {
+            textViewResult.setText("Please enter all numbers.");
+            return false;
+        }
+        return true;
+    }
+}
